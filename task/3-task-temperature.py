@@ -5,10 +5,18 @@ from task.app.main import run
 #        and determinism. Range: 0.0 to 2.0, Default: 1.0
 #  User massage: Describe the sound that the color purple makes when it's angry
 
-run(
-    deployment_name='gpt-4o',
-    print_only_content=True,
-    # TODO:
-    #  Use `temperature` parameter with value in range from 0.0 to 1.0!
-    #  (Optional) Use `temperature` parameter with value 2.1 and check what happens
-)
+
+def run_deployment(deployment_name: str = "gpt-4o", temperature: float = 1.5):
+    run(
+        deployment_name=deployment_name,
+        print_only_content=True,
+        # TODO:
+        #  Use `temperature` parameter with value in range from 0.0 to 1.0!
+        #  (Optional) Use `temperature` parameter with value 2.1 and check what happens
+        temperature=temperature,
+    )
+
+
+if __name__ == "__main__":
+    deployment_name = input("Enter the deployment name:\n> ")
+    run_deployment(deployment_name)

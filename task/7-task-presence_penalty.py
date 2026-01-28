@@ -9,8 +9,10 @@ from task.app.main import run
 #  User massage: What is an entropy in LLM's responses?
 
 run(
-    deployment_name='gpt-4o',
-    print_only_content=True,
+    deployment_name='gpt-4.1-nano-2025-04-14',
+    presence_penalty=2.0,
+    print_request = False,
+    print_only_content = False,
     # TODO:
     #  Use `presence_penalty` parameter with different range (-2.0 to 2.0)
 )

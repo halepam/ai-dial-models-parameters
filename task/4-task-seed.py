@@ -8,14 +8,23 @@ from task.app.main import run
 #       Default: None or random unless specified on the LLM side
 #  User massage: Name a random animal
 
-run(
-    deployment_name='gpt-4o',
-    # TODO:
-    #  1. Use `seed` parameter with value 42 (or whatever you want)
-    #  2. Use `n` parameter with value 5
-)
+def run_deployment(deployment_name: str = "gpt-4o"):
+    run(
+        deployment_name=deployment_name,
+        n=5,
+        seed=42
+        # TODO:
+        #  1. Use `seed` parameter with value 42 (or whatever you want)
+        #  2. Use `n` parameter with value 5
+    )
 
 # Check the content in choices. The expected result is that in almost all choices the result will be the same.
 # If you restart the app and retry, it should be mostly the same.
 # Also, try it without `seed` parameter.
 # For Anthropic and Gemini this parameter will be ignored
+
+
+
+if __name__ == "__main__":
+    deployment_name = input("Enter the deployment name:\n> ")
+    run_deployment(deployment_name)
